@@ -1,0 +1,26 @@
+Metric,Value,Notes
+--- MANUAL TESTING ---,,
+Total Manual Test Cases Designed,50,"Covers Registration, Login/Logout, Navigation, Search, Filter, Download"
+Manual Test Cases Executed (Pass+Fail),15,PASS + FAIL rows only
+Manual - Passed,11,73.3% of executed cases
+Manual - Failed,4,"26.7% of executed cases; 2 are Critical/Blocker application defects (BUG-001, BUG-002), 1 is a High mobile UI defect (BUG-003), 1 is a Low usability observation"
+Manual - Blocked,33,"All Navigation, Search, Filter, and Download cases, plus 2 Registration/Login edge cases - blocked because BUG-001 prevents authentication in the dev environment"
+Manual - Not Verified,2,"Time-boxed out of this 3-day assignment cycle (REG-005, REG-008)"
+Manual Pass Rate (of executed only),73.3%,11 / 15
+Manual Pass Rate (of all designed cases),22.0%,"11 / 50 - low only because 66% of cases are environment-blocked, not because features are individually failing"
+--- AUTOMATION TESTING (Playwright) ---,,
+Total Automated Test Cases Written,35,"Unique test cases across login.spec.ts, registration.spec.ts, navigation.spec.ts, search.spec.ts, filter.spec.ts, download.spec.ts"
+Browser/Device Projects Executed,4,"Chromium, Firefox, WebKit, Mobile Chrome (Pixel 7 emulation)"
+Total Automated Test Runs,140,35 test cases x 4 projects
+Automation - Passed,40,"All Login/Registration UI-validation checks that do not depend on the broken backend"
+Automation - Failed,8,"LOGIN-005 and REG-001 on all 4 browser projects - both are confirmed application defects (BUG-001, BUG-002), not automation bugs"
+Automation - Skipped,92,"All Navigation/Search/Filter/Download tests (23 cases x 4 projects) - dynamically self-skipped because a real login attempt fails first (BUG-001); will run automatically once the environment is fixed"
+"Automation Pass Rate (of executed, i.e. excluding skipped)",83.3%,40 / 48
+Automation Pass Rate (of all runs including skipped),28.6%,40 / 140
+Flaky Tests Observed,1,"LOGIN-004 on mobile-chrome intermittently timed out waiting for the error message in one supplementary run (see Test Report); attributed to variable backend response latency under repeated 500 errors, not to test code"
+--- DEFECTS ---,,
+Total Bugs Filed,3,"BUG-001 (Critical/Blocker), BUG-002 (Critical), BUG-003 (High)"
+Critical / Blocker,2,BUG-001 - Login backend 500; BUG-002 - Registration backend 500
+High,1,BUG-003 - Mobile responsive layout overlap on Login/Sign Up
+Medium,0,None observed in the executed scope
+Low,1,"LOGIN-009 finding (no password-recovery link) - logged as a manual test result/observation, not as a formal Bug Report, per its Low severity and QA-Assumption nature"

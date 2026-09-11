@@ -1,0 +1,22 @@
+{
+  "name": "agnos-playwright",
+  "version": "1.0.0",
+  "description": "Playwright automation suite for the Agnos AI Screening Dashboard",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:login": "playwright test tests/login.spec.ts",
+    "test:registration": "playwright test tests/registration.spec.ts",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.2",
+    "dotenv": "^17.2.3",
+    "typescript": "^5.9.3"
+  }
+}

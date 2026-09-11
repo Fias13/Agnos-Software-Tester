@@ -1,0 +1,28 @@
+# Test Plan — Agnos AI Screening Dashboard
+
+*(Also available as [sheets/1_Test_Plan.csv](../sheets/1_Test_Plan.csv) for direct import into Google Sheets.)*
+
+| Field | Detail |
+|---|---|
+| **Test Plan ID** | TP-AGNOS-AI-DASHBOARD-2026-09 |
+| **Project Name** | Agnos AI Dashboard — QA Candidate Assignment |
+| **Application** | Agnos AI Screening Dashboard (hospital-staff web app) at `https://dev.app.agnoshealth.com/ai_dashboard`, backed by the public-facing Agnos symptom-checker app at `https://dev.app.agnoshealth.com` |
+| **Objective** | Verify that hospital staff can reliably register, log in, navigate the AI Dashboard, search and filter patient records by triage/date/channel, and download records — through a combination of structured manual testing and Playwright test automation — and clearly document any defects found. |
+| **Scope** | Registration (sign-up) flow and validation; Login/Logout flow and session behavior; Main dashboard navigation (tabs); Record search; Record filtering by triage, date, and channel; Record download; basic UI/usability review; basic cross-browser (Chromium, Firefox, WebKit) and mobile-viewport compatibility checks via automation. |
+| **Out of Scope** | The public-facing patient symptom-checker / AI diagnosis flow at the root domain (used only as a data-generation dependency, not tested end-to-end); backend/infrastructure root-cause debugging beyond black-box HTTP observation; load/performance testing; accessibility (WCAG) audit; localization/translation accuracy; native mobile apps (web only). |
+| **Test Environment** | Dev environment only — App: `https://dev.app.agnoshealth.com/ai_dashboard`, API: `https://dev.api.agnoshealth.com`. No staging/production environment was provided or tested. |
+| **Test Types** | Functional, UI, Negative, Regression (via automation), Smoke (login/registration as automated smoke checks), Authentication, Data Validation, Download, Basic Compatibility (Chromium/Firefox/WebKit + one mobile viewport). |
+| **Test Approach** | 1. Explore the live application manually to document real UI structure and behavior (no invented requirements). 2. Design manual test cases covering positive, negative, boundary, and usability scenarios per module. 3. Execute manual test cases against the live dev environment and record real Pass/Fail/Blocked/Not-Verified results. 4. File detailed bug reports for every genuine, reproduced defect. 5. Select high-value, stable scenarios for Playwright automation using the Page Object Model. 6. Run the automation suite for real and report actual results, distinguishing application defects from test-code issues. 7. Summarize everything in a Test Report with real, calculated statistics. |
+| **Test Data** | Provided test account (`test@gmail.com` / `12345`) per the assignment; dynamically-generated unique emails for registration tests; a policy-compliant password (`Valid@1234`) for positive registration tests; intentionally invalid/malformed values for negative tests. |
+| **Entry Criteria** | Application URLs are reachable; test account credentials are provided; Playwright/Node.js tooling can be installed. |
+| **Exit Criteria** | All planned manual test cases executed and recorded with a real status; all discovered defects logged with reproduction steps; at least one automated Playwright test implemented and actually executed; a Test Report with real, calculated statistics produced. **Note:** full exit criteria for post-login modules could not be met this cycle because BUG-001 blocks authentication in the dev environment — documented as a blocking risk, not silently skipped. |
+| **Risks** | **[Realized]** The dev environment's login and registration backend endpoints return HTTP 500 for all tested inputs (BUG-001, BUG-002), preventing verification of every post-login feature within the assignment's time box. **[Potential]** Dev environment may change/redeploy mid-cycle, invalidating findings. **[Potential]** Lack of a dedicated QA/staging environment increases risk of testing unstable code. |
+| **Assumptions** | Credentials/URLs provided in the assignment are correct as of testing time. Where the real dashboard UI could not be reached, reasonable **QA Assumptions** were made about typical UI conventions and are explicitly labeled throughout — never presented as verified fact. |
+| **Dependencies** | Availability/stability of the dev environment; Node.js/npm and Playwright browser binaries; a working test account with dashboard access. |
+| **Browser/Device Coverage** | Desktop Chromium, Desktop Firefox, Desktop WebKit, and one mobile emulation profile (Pixel 7, 412×839). |
+| **Defect Severity Definition** | **Critical** — core functionality completely broken/blocked, no workaround. **High** — major feature broken/degraded, workaround difficult or none. **Medium** — feature partially broken, workaround available. **Low** — cosmetic/minor usability/edge case, minimal impact. |
+| **Defect Priority Definition** | **P0** — fix immediately, blocks further testing/release. **P1** — fix before next release, high business impact. **P2** — fix in a normal release cycle. **P3** — fix when convenient, low impact. |
+
+## Scope realism note
+
+This plan is deliberately scoped for a 3-day candidate assignment: exploration + test design happened on day 1, manual execution and bug filing on day 1–2, and automation build-out and reporting on day 2–3. When the dev environment's login/registration backend turned out to be broken (BUG-001/BUG-002), the effective testable surface shrank to the Login and Registration modules; Navigation/Search/Filter/Download were fully designed (manual test cases + automation scaffolding) but execution is **Blocked**, not fabricated.

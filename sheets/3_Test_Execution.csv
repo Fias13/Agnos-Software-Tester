@@ -1,0 +1,51 @@
+TC ID,Module,Status,Executed By,Execution Date,Execution Method,Linked Bug ID,Notes
+REG-001,Registration,FAIL,QA (this assignment),2026-09-10,Manual + Automated (Playwright),BUG-002,Backend 500 on valid new-account submission
+REG-002,Registration,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+REG-003,Registration,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+REG-004,Registration,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+REG-005,Registration,NOT VERIFIED,QA (this assignment),2026-09-10,Not executed,,Time-boxed out this cycle
+REG-006,Registration,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+REG-007,Registration,BLOCKED,QA (this assignment),2026-09-10,Manual,BUG-002,Duplicate-email behavior masked by the 500 error
+REG-008,Registration,NOT VERIFIED,QA (this assignment),2026-09-10,Not executed,,Time-boxed out this cycle
+REG-009,Registration,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+REG-010,Registration,FAIL,QA (this assignment),2026-09-10,Manual,BUG-003,Mobile layout overlap
+LOGIN-001,Login,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+LOGIN-002,Login,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+LOGIN-003,Login,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+LOGIN-004,Login,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,"Intermittent timeout observed on mobile-chrome in one supplementary run; see Test Report Flaky Tests"
+LOGIN-005,Login,FAIL,QA (this assignment),2026-09-10,Manual + Automated (Playwright),BUG-001,Backend 500 on documented test credentials
+LOGIN-006,Login,PASS,QA (this assignment),2026-09-10,Manual + Automated (Playwright),,
+LOGIN-007,Login,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,Cannot authenticate to reach logout control
+LOGIN-008,Login,PASS,QA (this assignment),2026-09-10,Manual,,
+LOGIN-009,Login,FAIL,QA (this assignment),2026-09-10,Manual,,"No password-recovery link found (usability observation, Low severity)"
+NAV-001,Navigation,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+NAV-002,Navigation,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+NAV-003,Navigation,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+NAV-004,Navigation,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+NAV-005,Navigation,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+NAV-006,Navigation,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+SEARCH-001,Search,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+SEARCH-002,Search,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+SEARCH-003,Search,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+SEARCH-004,Search,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+SEARCH-005,Search,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+SEARCH-006,Search,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+SEARCH-007,Search,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+SEARCH-008,Search,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-001,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-002,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-003,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-004,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-005,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-006,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-007,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-008,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+FILTER-009,Filter,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+DOWNLOAD-001,Download,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+DOWNLOAD-002,Download,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+DOWNLOAD-003,Download,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+DOWNLOAD-004,Download,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+DOWNLOAD-005,Download,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+DOWNLOAD-006,Download,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+DOWNLOAD-007,Download,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,
+DOWNLOAD-008,Download,BLOCKED,QA (this assignment),2026-09-10,Not executed,BUG-001,

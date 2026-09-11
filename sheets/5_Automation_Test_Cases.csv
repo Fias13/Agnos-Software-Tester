@@ -1,0 +1,30 @@
+Automation ID,Related Manual TC,Scenario,Automation Priority,Reason for Automation,Expected Result
+AUTO-LOGIN-01,LOGIN-001,Sign in button disabled when both fields are empty,High,"Stable UI-state check, cheap, high regression value for a core gate",Button is disabled
+AUTO-LOGIN-02,LOGIN-002,Sign in button disabled with only email filled,Medium,"Simple state variation of AUTO-LOGIN-01, repetitive to check manually",Button remains disabled
+AUTO-LOGIN-03,LOGIN-003,Sign in button enabled once both fields are filled,High,"Core gating logic before every login attempt; regression-prone if form logic changes",Button is enabled
+AUTO-LOGIN-04,LOGIN-004,Invalid credentials show an error and keep user on login page,High,"Security-relevant negative path; must never silently succeed",Error message shown; still on /login
+AUTO-LOGIN-05,LOGIN-005,Valid credentials log the user into the dashboard,Critical,"Core smoke-test scenario - the single most important path in the whole app; must run on every build",Redirected off /login into the dashboard
+AUTO-LOGIN-06,LOGIN-006,Password field masks input by default,Low,"Simple, stable, cheap to verify; unlikely to change but easy to regress accidentally",input type=password
+AUTO-REG-01,REG-001,Register with a valid unique email and compliant password,Critical,"Core smoke-test scenario for onboarding new users; high business impact if broken","Account created, redirected off sign-up page"
+AUTO-REG-02,REG-002,Confirm button disabled when all fields are empty,Medium,"Simple, stable gating check",Button disabled
+AUTO-REG-03,REG-003,Invalid email format rejected before submission,High,"Data-quality gate; prevents bad data reaching the backend; easy to regress if validation library changes","Inline error shown, API not called"
+AUTO-REG-04,REG-004,Weak/short password rejected before submission,High,"Security-relevant validation; must stay enforced across releases","Inline error shown, API not called"
+AUTO-REG-05,REG-006,Password/Confirm mismatch is detected,Medium,"Common user error path, worth locking in with regression coverage",Mismatch message shown
+AUTO-REG-06,REG-009,Password field masks input by default,Low,"Simple, stable, cheap to verify",input type=password
+AUTO-NAV-01,NAV-001,Main navigation tabs visible after login,High,"Entry point for every other authenticated test; if this regresses, most of the app is unusable",Nav menu visible
+AUTO-NAV-02,NAV-002,Clicking a tab navigates and marks it active,High,"Core navigation regression risk area as new tabs/features are added","URL/content changes, active state indicated"
+AUTO-NAV-03,NAV-004,Refreshing a tab keeps the user on the same tab (session persists),Medium,"Session-persistence regressions are easy to introduce and hard to notice manually",Same tab/content after reload
+AUTO-NAV-04,NAV-005,Logout returns user to login and protects pages afterward,High,"Security-relevant - a broken logout is a real risk (session not truly ended)",Redirected to /login; protected routes blocked
+AUTO-SEARCH-01,SEARCH-001,Exact search returns the matching record,High,"Core, frequently-used feature by hospital staff; high regression value",Matching record shown
+AUTO-SEARCH-02,SEARCH-003,Search with no matches shows an empty-state message,Medium,"Common negative path; easy to silently break (e.g. blank table vs. proper message)",Empty-state message shown
+AUTO-SEARCH-03,SEARCH-004,Clearing search restores the full list,Medium,"Frequently used reset action; state-management regression risk",Full list restored
+AUTO-SEARCH-04,SEARCH-005,Special characters do not break the page,Medium,"Defensive/security-adjacent check (injection-style input handling)","Page remains stable, no crash"
+AUTO-FILTER-01,FILTER-001,Filter by triage level shows only matching records,Critical,"Core clinical workflow feature; incorrect filtering has real patient-triage implications",Only matching-triage records shown
+AUTO-FILTER-02,FILTER-002,Filter by date range shows only records in range,High,"Frequently used for reporting; date-boundary logic is a common regression source",Only in-range records shown
+AUTO-FILTER-03,FILTER-003,Filter by channel shows only matching records,High,"Core segmentation feature used daily by hospital staff",Only matching-channel records shown
+AUTO-FILTER-04,FILTER-005,Clear filters resets the list,Medium,"Common reset action after multi-filter use",Full list restored
+AUTO-FILTER-05,FILTER-006,Filter combination with no matches shows empty-state,Medium,"Easy to silently break (blank vs. explicit message)",Empty-state shown
+AUTO-DOWNLOAD-01,DOWNLOAD-001,Download button produces a file,Critical,"Core reporting/compliance feature; hospital staff rely on exports for offline review",File download triggered
+AUTO-DOWNLOAD-02,DOWNLOAD-002,Downloaded file has the expected format,High,"Data-integrity check; wrong format breaks downstream staff workflows silently",Correct file extension/format
+AUTO-DOWNLOAD-03,DOWNLOAD-004,Download respects active filters,High,"High business risk if staff unknowingly export unfiltered/wrong data",Only filtered records in file
+AUTO-DOWNLOAD-04,DOWNLOAD-005,Download disabled/hidden when there is no data,Low,"Minor UX guard, cheap to check once implemented",Button disabled or file clearly empty
